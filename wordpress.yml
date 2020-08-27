@@ -6,16 +6,17 @@
    wp_mysql_db: wordpress
    wp_mysql_user: wp-admin
    wp_mysql_password: mysql
-   wp_mysql_host: "{{54.172.165.181}}"
+   wp_mysql_host: "{{172.31.41.235}}"
   tasks:
   - name: LAMP installation
-    yum: name={{ item }} state=present
-    with_items:
-     - httpd24
-     - mysql-server
-     - php56
-     - php56-mysqlnd
-     - MySQL-python27
+      yum:
+       name:
+      - httpd24
+      - mysql-server
+      - php56
+      - php56-mysqlnd
+      - MySQL-python27
+       state: present
   - name: Removing httpd welcome page from webserver
     file:
       path: "/etc/httpd/conf.d/welcome.conf"
