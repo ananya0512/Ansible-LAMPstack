@@ -1,6 +1,6 @@
 ---
 - name: Wordpress Installation
-  hosts: 3.83.34.63
+  hosts: webservers
   become: yes
   vars:
    wp_mysql_db: wordpress
