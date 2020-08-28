@@ -39,13 +39,30 @@
       remote_src: yes
   - name: Renaming sample wordpress configuration from webserver
     command: "mv /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php"
-  - name: Update WordPress config file
-    lineinfile: dest=/var/www/html/wordpress/wp-config.php regexp={{ item.regexp }} line={{ item.line }}
-    with_items:
-      - {'regexp': "define\\( 'DB_NAME', '(database_name_here)+' \\);", 'line': "define('DB_NAME', '{{wp_mysql_db}}');"}
-      - {'regexp': "define\\( 'DB_USER', '(username_here)+' \\);", 'line': "define('DB_USER', '{{wp_mysql_user}}');"}
-      - {'regexp': "define\\( 'DB_PASSWORD', '(password_here)+' \\);", 'line': "define('DB_PASSWORD', '{{wp_mysql_password}}');"}
-      - {'regexp': "define\\( 'DB_HOST', '(localhost)+' \\);", 'line': "define('DB_HOST', '{{wp_mysql_host}}');"}
+  - name: replace DB_NAME line
+    lineinfile: 
+      path: /var/www/html/wordpress/wp-config.php
+      regexp: 'define( 'DB_NAME', 'database_name_here' );' 
+      line: 'define('DB_NAME', '{{wp_mysql_db}}');'
+      backrefs: yes
+  - name: replace DB_USER line
+    lineinfile: 
+      path: /var/www/html/wordpress/wp-config.php
+      regexp: 'define( 'DB_USER', 'username_here' );' 
+      line: 'define('DB_NAME', '{{wp_mysql_user}}');'
+      backrefs: yes
+  - name: replace DB_PASSWORD line
+    lineinfile: 
+      path: /var/www/html/wordpress/wp-config.php
+      regexp: 'define( 'DB_PASSWORD', 'password_here' );' 
+      line: 'define('DB_NAME', '{{wp_mysql_password}}');'
+      backrefs: yes
+  - name: replace DB_HOST line
+    lineinfile: 
+      path: /var/www/html/wordpress/wp-config.php
+      regexp: 'define( 'DB_HOST', 'localhost' );' 
+      line: 'define('DB_NAME', '{{wp_mysql_host}}');'
+      backrefs: yes
   - name: Update default Apache site
     lineinfile:
      dest=/etc/httpd/conf/httpd.conf
