@@ -12,9 +12,17 @@
     yum:
      name: httpd
      state: latest
-  - name: Install php56 package
+  - name: Install php package
     yum:
-     name: php56
+     name: php
+     state: latest
+  - name: Install php-mysql package
+    yum:
+     name: php-mysql
+     state: latest
+  - name: Install php-gd package
+    yum:
+     name: php-gd
      state: latest
   - name: Install mysql57-server package
     yum:
