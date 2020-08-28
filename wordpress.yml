@@ -44,10 +44,6 @@
     yum:
      name: php-mbstring
      state: present
-  - name: Install python2-PyMySQL package
-    yum:
-     name: python2-PyMySQL
-     state: present
   - name: Removing httpd welcome page from webserver
     file:
       path: "/etc/httpd/conf.d/welcome.conf"
