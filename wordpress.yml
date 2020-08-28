@@ -44,10 +44,6 @@
     yum:
      name: php-mbstring
      state: present
-  - name: Install php-mcrypt package
-    yum:
-     name: php-mcrypt
-     state: present
   - name: Removing httpd welcome page from webserver
     file:
       path: "/etc/httpd/conf.d/welcome.conf"
