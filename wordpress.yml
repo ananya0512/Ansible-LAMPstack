@@ -28,9 +28,25 @@
     yum:
      name: mariadb-server
      state: latest
-  - name: Install python-mysqldb package
+  - name: Install mariadb package
     yum:
-     name: python-mysqldb
+     name: mariadb
+     state: present
+  - name: Install php-common package
+    yum:
+     name: php-common
+     state: present
+  - name: Install php-xml package
+    yum:
+     name: php-xml
+     state: present
+  - name: Install php-mbstring package
+    yum:
+     name: php-mbstring
+     state: present
+  - name: Install php-mcrypt package
+    yum:
+     name: php-mcrypt
      state: present
   - name: Removing httpd welcome page from webserver
     file:
