@@ -28,9 +28,9 @@
     yum:
      name: mariadb-server
      state: latest
-  - name: Install pymysql package
+  - name: Install python-mysqldb package
     yum:
-     name: pymysql
+     name: python-mysqldb
      state: present
   - name: Removing httpd welcome page from webserver
     file:
