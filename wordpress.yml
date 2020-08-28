@@ -8,9 +8,9 @@
    wp_mysql_password: mysql
    wp_mysql_host: "{{172.31.41.235}}"
   tasks:
-  - name: Install httpd24 package
+  - name: Install httpd package
     yum:
-     name: httpd24
+     name: httpd
      state: latest
   - name: Install php72 package
     yum:
