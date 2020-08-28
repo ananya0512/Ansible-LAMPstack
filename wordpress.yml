@@ -31,19 +31,19 @@
   - name: Install mariadb package
     yum:
      name: mariadb
-     state: present
+     state: latest
   - name: Install php-common package
     yum:
      name: php-common
-     state: present
+     state: latest
   - name: Install php-xml package
     yum:
      name: php-xml
-     state: present
+     state: latest
   - name: Install php-mbstring package
     yum:
      name: php-mbstring
-     state: present
+     state: latest
   - name: Removing httpd welcome page from webserver
     file:
       path: "/etc/httpd/conf.d/welcome.conf"
