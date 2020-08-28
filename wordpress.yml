@@ -6,7 +6,7 @@
    wp_mysql_db: wordpress
    wp_mysql_user: wp-admin
    wp_mysql_password: mysql
-   wp_mysql_host: "{{172.31.41.235}}"
+   wp_mysql_host: "{{ansible_default_ipv4.address}}"
   tasks:
   - name: Install httpd package
     yum:
