@@ -44,7 +44,7 @@
     yum:
      name: php-mbstring
      state: present
-   - name: Install python2-PyMySQL package
+  - name: Install python2-PyMySQL package
     yum:
      name: python2-PyMySQL
      state: present
