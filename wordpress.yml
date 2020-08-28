@@ -24,13 +24,9 @@
     yum:
      name: php-gd
      state: latest
-  - name: Install mysql57-server package
+  - name: Install mariadb-server mariadb package
     yum:
-     name: mysql57-server
-     state: latest
-  - name: Install php72-mysqlnd package
-    yum:
-     name: php72-mysqlnd
+     name: mariadb-server mariadb
      state: latest
   - name: Removing httpd welcome page from webserver
     file:
@@ -56,7 +52,7 @@
      line="DocumentRoot /var/www/html/wordpress"
   - name: Starting the mysqld service
     service:
-     name: mysqld
+     name: mariadb
      state: started
   - name: Creating database for wordpress
     mysql_db:
@@ -69,9 +65,9 @@
       host: '%'
       priv: '*.*:ALL'
       state: present
-  - name: starting httpd and mysqld
+  - name: starting httpd and mariadb
     service: name={{ item }} state=restarted
     with_items:
      - httpd
-     - mysqld
+     - mariadb
 ...
