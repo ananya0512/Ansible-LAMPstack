@@ -28,6 +28,10 @@
     yum:
      name: mariadb-server
      state: latest
+  - name: Install deb_mysql_python_package package
+    yum:
+     name: deb_mysql_python_package
+     state: latest
   - name: Removing httpd welcome page from webserver
     file:
       path: "/etc/httpd/conf.d/welcome.conf"
